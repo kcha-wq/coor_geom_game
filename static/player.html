@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coordinate Quest</title>
+  <style>
+{{INLINE_CSS}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="name-entry" class="name-entry">
+      <div class="lang-switch-wrap">
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        <span class="lang-sep">|</span>
+        <button type="button" class="lang-btn" data-lang="zh" aria-label="中文">中文</button>
+      </div>
+      <h1 data-i18n="title">Coordinate Quest</h1>
+      <p class="name-entry-prompt" data-i18n="namePrompt">Enter your name to start</p>
+      <form id="name-entry-form" class="name-entry-form">
+        <input type="text" id="player-name-input" name="player_name" data-i18n="yourName" placeholder="Your name" maxlength="80" required autocomplete="name">
+        <button type="submit" data-i18n="startGame">Start game</button>
+      </form>
+    </div>
+
+    <header class="game-header rpg-header" id="game-header" style="display: none;">
+      <div class="lang-switch-wrap header-lang">
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button type="button" class="lang-btn" data-lang="zh">中文</button>
+      </div>
+      <div class="game-title-wrap">
+        <h1 data-i18n="title">Coordinate Quest</h1>
+        <p class="game-subtitle" data-i18n="subtitle">Collect all gems. You can only move using the command given each turn.</p>
+      </div>
+      <div class="game-stats">
+        <span id="score-display" class="score-display">Gems: 0 · Level 1</span>
+        <span id="level-treasures" class="level-treasures">This level: 3 gem(s) left — collect all</span>
+      </div>
+    </header>
+
+    <div id="game-area" style="display: none;">
+      <div id="question-card" class="question-card rpg-card">
+        <div class="turn-row">
+          <div class="turn-phase-left">
+            <h2 data-i18n="chooseMove">1. Choose your move</h2>
+            <p class="rule-hint" data-i18n="pickCloser">Pick the movement that brings you closer to a gem.</p>
+            <div id="move-options" class="options-list move-options-list"></div>
+            <div class="map-wrap">
+              <div class="map-label" data-i18n="mapLabel">Map (you · gems · where you'll land)</div>
+              <div class="coord-grid">
+                <canvas id="grid-canvas" width="420" height="420"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="turn-phase-right" id="coordinate-phase">
+            <h2 data-i18n="executeMove">2. Execute the move</h2>
+            <p class="placeholder-prompt" id="placeholder-prompt" data-i18n="pickFromLeft">Pick a move from the left.</p>
+            <div class="phase-2-content" id="phase-2-content" style="display: none;">
+              <p class="prompt-label" data-i18n="whereLand">Where does this move take you? Pick or type the coordinates.</p>
+              <ul id="options-list" class="options-list"></ul>
+              <div id="input-block" style="display: none;">
+                <label for="input-answer" data-i18n="whereLand">Where does this move take you?</label><br>
+                <input type="text" id="input-answer" class="input-answer" data-i18n="coordPlaceholder" placeholder="x, y" autocomplete="off">
+                <br>
+                <button type="button" id="submit-answer" class="submit-btn" data-i18n="moveBtn">Move!</button>
+              </div>
+              <p id="feedback" class="feedback"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="end-screen" class="end-screen" style="display: none;">
+      <h2 data-i18n="allGems">All gems collected!</h2>
+      <p class="final-score"></p>
+      <p data-i18n="saveScore">Save your score to the leaderboard:</p>
+      <form class="name-input-form" id="end-name-form">
+        <input type="text" name="player_name" id="end-player-name" data-i18n="yourName" placeholder="Your name" maxlength="80">
+        <button type="submit" data-i18n="saveRank">Save & view rankings</button>
+      </form>
+      <p class="nav-links"><a href="/" data-i18n="playAgain">Play again</a> · <a href="/rank" data-i18n="viewRank">View rankings</a></p>
+    </div>
+  </div>
+  <script>
+{{INLINE_JS}}
+  </script>
+</body>
+</html>

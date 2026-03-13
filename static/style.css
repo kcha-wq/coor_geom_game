@@ -1,0 +1,489 @@
+/* Coordinate Plane Geometry Game - Shared styles */
+:root {
+  --bg: #0f0f14;
+  --surface: #1a1a24;
+  --border: #2d2d3a;
+  --text: #e8e6e3;
+  --muted: #8b8b9a;
+  --accent: #6c9ef8;
+  --accent-dim: #4a7ad4;
+  --correct: #4ade80;
+  --wrong: #f87171;
+  --grid-line: rgba(255,255,255,0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.lang-switch-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+.lang-switch-wrap.header-lang {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  margin-bottom: 0;
+}
+.lang-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.lang-btn:hover, .lang-btn.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.lang-sep {
+  color: var(--border);
+  font-size: 0.875rem;
+}
+
+.name-entry {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.name-entry h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  color: var(--text);
+}
+
+.name-entry-prompt {
+  color: var(--muted);
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+}
+
+.name-entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.name-entry-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.name-entry-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.name-entry-form button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.name-entry-form button:hover {
+  background: var(--accent-dim);
+}
+
+/* Player page */
+.game-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.game-title-wrap .game-subtitle {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: normal;
+}
+
+.game-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.score-display {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.level-treasures {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.turn-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.turn-phase-left {
+  flex: 0 0 auto;
+  min-width: 320px;
+}
+
+.turn-phase-right {
+  flex: 0 0 320px;
+  min-width: 280px;
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+}
+
+.turn-phase-right .placeholder-prompt {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.map-wrap {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.map-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.prompt-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.rpg-card h2 {
+  color: var(--accent);
+}
+
+.question-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.question-card h2 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rule-hint {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.question-text {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.coord-grid {
+  width: 420px;
+  height: 420px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(165deg, #2d3548 0%, #1e2433 100%);
+  border: 2px solid rgba(108, 158, 248, 0.35);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.coord-grid canvas {
+  display: block;
+  width: 420px;
+  height: 420px;
+  border-radius: 10px;
+}
+
+.options-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.move-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.options-list li {
+  margin-bottom: 0.5rem;
+}
+
+.option-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.option-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: rgba(108, 158, 248, 0.08);
+}
+
+.option-btn:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.option-btn.correct {
+  border-color: var(--correct);
+  background: rgba(74, 222, 128, 0.12);
+}
+
+.option-btn.wrong {
+  border-color: var(--wrong);
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.input-answer {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-answer:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.input-answer.correct { border-color: var(--correct); }
+.input-answer.wrong { border-color: var(--wrong); }
+
+.submit-btn {
+  padding: 0.6rem 1.2rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--accent-dim);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feedback {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.feedback.correct { color: var(--correct); }
+.feedback.wrong { color: var(--wrong); }
+
+/* End screen */
+.end-screen {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.end-screen h2 {
+  margin-bottom: 0.5rem;
+}
+
+.end-screen .final-score {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.name-input-form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.name-input-form input {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  min-width: 160px;
+}
+
+.name-input-form button {
+  padding: 0.6rem 1.2rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.name-input-form button:hover {
+  background: var(--accent-dim);
+}
+
+/* Rank page */
+.rank-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.rank-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.rank-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.rank-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.rank-table th,
+.rank-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.rank-table th {
+  background: var(--bg);
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.rank-table tr:last-child td {
+  border-bottom: none;
+}
+
+.rank-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+.rank-table .rank-num {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  width: 3rem;
+}
+
+.rank-table .score-cell {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.empty-rank {
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted);
+}
+
+.nav-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.nav-links a {
+  margin: 0 0.5rem;
+}
